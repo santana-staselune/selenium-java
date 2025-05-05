@@ -12,24 +12,19 @@ public class InventoryPage {
 
     public InventoryPage(ChromeDriver driver) {
         PageFactory.initElements(driver, this);
-
     }
 
     @FindBy(className = "inventory_item")
     List<WebElement> inventoryItems;
 
-    By addToCartButton = By.xpath(".//button[contains(@class,'btn_inventory')]");
+    private final By addToCartButton = By.xpath(".//button[contains(@class,'btn_inventory')]");
 
-    public void addItemToTheCartByName(String itemName) {
-        for (WebElement item : inventoryItems){
-            if(item.getText().contains(itemName)){
-                    item.findElement(addToCartButton).click();
-            break;
+    public void addItemToCartByName(String itemName) {
+        for (WebElement item : inventoryItems) {
+            if(item.getText().contains(itemName)) {
+                item.findElement(addToCartButton).click();
+                break;
             }
-
         }
-
     }
-
-
 }
