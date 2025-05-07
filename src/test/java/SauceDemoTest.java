@@ -24,6 +24,7 @@ public class SauceDemoTest {
     HeaderPage headerPage;
     CartPage cartPage;
     CheckoutPage checkoutPage;
+    OverviewPage overviewPage;
 
     private static final Logger logger = LoggerFactory.getLogger(SauceDemoTest.class);
 
@@ -51,6 +52,7 @@ public class SauceDemoTest {
         headerPage = new HeaderPage(driver);
         cartPage = new CartPage(driver);
         checkoutPage = new CheckoutPage(driver);
+        overviewPage = new OverviewPage(driver);
     }
 
     @Test(enabled = false)
@@ -102,7 +104,8 @@ public class SauceDemoTest {
                 firstName,
                 lastName,
                 postalCode);
-
+        overviewPage.getFinishButton().click();
+        logger.info("Finish");
     }
 
     @AfterMethod()
