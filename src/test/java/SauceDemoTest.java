@@ -104,8 +104,10 @@ public class SauceDemoTest {
                 firstName,
                 lastName,
                 postalCode);
+        assertThat(overviewPage.getPayInf().getText()).isEqualTo("SauceCard #31337");
+    //    assertThat(overviewPage.getShipInf().getText()).isEqualTo("FREE PONY EXPRESS DELIVERY!");
         overviewPage.getFinishButton().click();
-        logger.info("Finish");
+        logger.info("Finish.");
     }
 
     @AfterMethod()
