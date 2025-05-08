@@ -25,6 +25,7 @@ public class SauceDemoTest {
     CartPage cartPage;
     CheckoutPage checkoutPage;
     OverviewPage overviewPage;
+    FinishPage finishPage;
 
     private static final Logger logger = LoggerFactory.getLogger(SauceDemoTest.class);
 
@@ -53,6 +54,7 @@ public class SauceDemoTest {
         cartPage = new CartPage(driver);
         checkoutPage = new CheckoutPage(driver);
         overviewPage = new OverviewPage(driver);
+        finishPage = new FinishPage(driver);
     }
 
     @Test(enabled = false)
@@ -107,7 +109,9 @@ public class SauceDemoTest {
         assertThat(overviewPage.getPayInf().getText()).isEqualTo("SauceCard #31337");
     //    assertThat(overviewPage.getShipInf().getText()).isEqualTo("FREE PONY EXPRESS DELIVERY!");
         overviewPage.getFinishButton().click();
-        logger.info("Finish.");
+        logger.info("Finish order");
+        assertThat(finishPage.getFinishOrder().getText()).isEqualTo("Thank you for your order!");
+        logger.info("Order is completed");
 
 
     }
