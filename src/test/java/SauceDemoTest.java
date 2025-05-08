@@ -101,16 +101,16 @@ public class SauceDemoTest {
                 firstName,
                 lastName,
                 postalCode);
-      //  assertThat(overviewPage.getPayInf().getText()).isEqualTo("SauceCard #31337");
-      //  assertThat(overviewPage.getShipInf().getText()).isEqualTo("FREE PONY EXPRESS DELIVERY!");
-      //  overviewPage.getFinishButton().click();
-      //  logger.info("Finish order");
-      //  assertThat(finishPage.getFinishOrder().getText()).isEqualTo("Thank you for your order!");
-      //  logger.info("Order is completed");
+
+    
        checkoutPage.completePurchase();
        assertThat(checkoutPage.getCompleteOrderHeader().getText()).isEqualTo(Constants.Messages.THANK_YOU_FOR_YOUR_ORDER);
        assertThat(checkoutPage.getCompleteOrderText().getText()).isEqualTo(Constants.Messages.ORDER_HAS_BEEN_DISPATCHED);
        Allure.step("Purchase finished");
+        assertThat(overviewPage.getPayInf().getText()).isEqualTo("SauceCard #31337");
+       overviewPage.getFinishButton().click();
+        logger.info("Finish.");
+
     }
 
     @AfterMethod()
