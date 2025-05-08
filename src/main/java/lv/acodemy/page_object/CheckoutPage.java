@@ -23,6 +23,14 @@ public class CheckoutPage {
     @FindBy(id = "continue")
     private WebElement formSubmitButton;
 
+    @FindBy (id = "finish")
+    private WebElement finishButton;
+    @FindBy(xpath = "//h2[@data-test='complete-header']")
+    private WebElement completeOrderHeader;
+
+    @FindBy(xpath = "//div[@data-test='complete-text']")
+    private WebElement completeOrderText;
+
     public void fillCheckoutForm(String firstName, String lastName, String postalCode) {
 
         firstNameInput.sendKeys(firstName);
@@ -31,5 +39,17 @@ public class CheckoutPage {
         formSubmitButton.click();
     }
 
+    public WebElement getCompleteOrderHeader() {
+        return completeOrderHeader;
+    }
+    public WebElement getCompleteOrderText() {
+        return completeOrderText;
+    }
+    public void completePurchase(){
+        finishButton.click();
 
-}
+    }
+
+   }
+
+
