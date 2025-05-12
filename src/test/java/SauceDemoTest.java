@@ -113,6 +113,24 @@ public class SauceDemoTest {
        Allure.step("Purchase finished");
     }
 
+    @Test
+    public void loginEmptyCredentialTest() {
+
+    }
+
+    @Test
+    public void loginEmptyUserNameTest() {
+
+    }
+
+    @Test
+    public void loginEmptyPasswordTest() {
+
+    }
+
+
+
+
     @AfterMethod()
     public void tearDown() {
         driver.close();

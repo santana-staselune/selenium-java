@@ -23,7 +23,8 @@ public class LoginPage {
     @FindBy(how = How.ID, id = "login-button")
     private WebElement inputFieldLogin;
 
-
+    @FindBy(className = "error-button")
+    private WebElement errorButton;
 
     public void authorize(String username, String password){
 
